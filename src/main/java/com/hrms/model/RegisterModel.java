@@ -12,7 +12,7 @@ public class RegisterModel {
     private String mobileNumber; // Change to String
     private Date registerDate;
     private String parentContact;
-	private Set<Topic> topics;
+	private String topics;
 
     // Getters and setters
     public int getUserId() {
@@ -70,22 +70,33 @@ public class RegisterModel {
     public void setParentContact(String parentContact) {
         this.parentContact = parentContact;
     }
+    
 
+
+    public String getTopics() {
+		return topics;
+	}
+
+	public void setTopics(String topics) {
+		this.topics = topics;
+	}
+
+	
 
     public RegisterModel(int userId, String userName, String email, String address, String mobileNumber,
-            Set<Topic> topics, Date registerDate, String parentContact) {
-        super();
-        this.userId = userId;
-        this.userName = userName;
-        this.email = email;
-        this.address = address;
-        this.mobileNumber = mobileNumber; // Change to long
-        this.topics = topics;
-        this.registerDate = registerDate;
-        this.parentContact = parentContact;
-    }
+			Date registerDate, String parentContact, String topics) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.email = email;
+		this.address = address;
+		this.mobileNumber = mobileNumber;
+		this.registerDate = registerDate;
+		this.parentContact = parentContact;
+		this.topics = topics;
+	}
 
-    public RegisterModel() {
+	public RegisterModel() {
         // Default constructor
     }
 
@@ -96,8 +107,6 @@ public class RegisterModel {
                 + ", parentContact=" + parentContact + "]";
     }
 
-	public Set<Object> setTopics(HashSet<Topic> topics) {
-	return Set.of("java");
-	}
+	
 
 }

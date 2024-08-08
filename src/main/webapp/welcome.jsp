@@ -16,30 +16,45 @@
         align-items: center;
         height: 100vh;
     }
+    .container {
+        text-align: center;
+        padding: 40px;
+        background: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 12px;
+        width: 300px;
+    }
+    .container h1 {
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 2em;
+        font-weight: bold;
+    }
     a {
-        font-size: 1.5em;
-        color: #fff;
+        display: block;
+        font-size: 1.2em;
+        color: #ffffff;
         text-decoration: none;
-        padding: 15px 30px;
+        padding: 15px;
+        margin: 10px 0;
         background-color: #28a745;
         border-radius: 8px;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
     a:hover {
         background-color: #218838;
+        transform: translateY(-2px);
     }
-    .container {
-        text-align: center;
-        padding: 50px;
-        background: #ffffff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+    a:active {
+        transform: translateY(1px);
     }
 </style>
 </head>
 <body>
 <div class="container">
+    <h1>Welcome</h1>
     <a href="register.jsp">REGISTER</a>
+    <a href="userList">USER LIST</a>
 </div>
 </body>
 </html>

@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,17 +30,8 @@ public class UserController extends HttpServlet {
         String userName = request.getParameter("userName");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        String mobile = request.getParameter("mobileNumber"); // Change to long
-        String[] topicParams = request.getParameterValues("topic");
-        HashSet<Topic> topics = new HashSet<>();
-
-        if (topicParams != null) {
-            for (String topic : topicParams) {
-                topics.add(new Topic(topic));
-            }
-        }
-
-        // Parse the date parameter
+        String mobile = request.getParameter("mobileNumber");
+        String topics =request.getParameter("topic");
         String registerDateString = request.getParameter("registerDate");
         Date registerDate = null;
         try {
@@ -56,19 +48,19 @@ public class UserController extends HttpServlet {
         model.setUserName(userName);
         model.setEmail(email);
         model.setAddress(address);
-        model.setMobileNumber(mobile); // Use long
+        model.setMobileNumber(mobile); 
         model.setTopics(topics);
         model.setRegisterDate(registerDate);
         model.setParentContact(parentContact);
-
+        
         out.print(model);
         System.out.println(model);
 
         // Create an object to service navigation
         UserService userService = new UserServiceImpl();
         int registerValue = userService.registerUser(model);
-        System.out.println(registerValue);
-
-        response.sendRedirect("userList.jsp");
+        
+        
+        response.sendRedirect("userList");
     }
 }
